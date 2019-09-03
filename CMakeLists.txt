@@ -32,7 +32,7 @@ target_sources(utils
 
 if(BUILD_TESTS)
     enable_testing()
-    add_executable(crc32c_test "")
+    add_executable(crc32c_test "" test/testharness.h test/testharness.cpp)
     target_sources(crc32c_test
             PRIVATE
                 "crc32c_test.cpp")

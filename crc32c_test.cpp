@@ -7,10 +7,13 @@
 
 
 #include "crc32c.h"
+#include "test/testharness.h"
 
 using namespace std;
 
 namespace crc32c {
+    class CRC {};
+
     void test(){
         char buf[32];
 
@@ -22,7 +25,13 @@ namespace crc32c {
         uint32_t crc = Value("foo", 3);
         cout << hex << crc << endl;
     }
+
+    TEST(CRC, Values) { ASSERT_NE(Value("a", 1), Value("foo", 3)); }
+
+    TEST(CRC, Extend) {
+        ASSERT_EQ(Value("hello world", 11), Extend(Value("hello ", 6), "world", 5));
+    }
 }
 int main() {
-    crc32c::test();
+    ::test::RunAllTests();
 }
