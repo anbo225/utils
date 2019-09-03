@@ -1,0 +1,10 @@
+#ifndef PORT_PORT_CONFIG_H_
+#define PORT_PORT_CONFIG_H_
+
+// Define to 1 if your processor stores words with the most significant byte
+// first (like Motorola and SPARC, unlike Intel and VAX).
+#if !defined(IS_BIG_ENDIAN)
+#cmakedefine01 IS_BIG_ENDIAN
+#endif  // !defined(IS_BIG_ENDIAN)
+
+#endif  // PORT_PORT_CONFIG_H_
